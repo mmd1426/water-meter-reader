@@ -1,20 +1,19 @@
 # WaterMeter-Reader
 
-## معرفی
-این پروژه به منظور خواندن خودکار اعداد کنتور آب با استفاده از تکنیک‌های یادگیری عمیق طراحی شده است. در این پروژه از مدل YOLOv8 که توسط Ultralytics ارائه شده، برای شناسایی اعداد روی کنتور استفاده می‌شود. هدف اصلی این پروژه، ساده‌سازی فرآیند خواندن کنتور و کاهش خطاها است.
+## Introduction
+This project is designed for the automatic reading of water meter digits using deep learning techniques. The YOLOv8 model, developed by Ultralytics, is employed for detecting the digits on the meter. The primary goal of this project is to simplify the water meter reading process and reduce errors.
 
-## ویژگی‌ها
-- **استفاده از YOLOv8 برای تشخیص اعداد**: شناسایی و تشخیص اعداد روی صفحه کنتور آب.
-- **پیش‌پردازش تصاویر**: شامل مراحل لازم برای آماده‌سازی تصاویر مانند تغییر اندازه، مقیاس‌بندی و بهبود کیفیت برای عملکرد بهتر مدل.
-- **استفاده از مجموعه داده سفارشی**: آموزش مدل با استفاده از مجموعه‌ای از تصاویر کنتور آب برچسب‌گذاری شده.
-- **دقت بالا**: شناسایی دقیق اعداد در تصاویر کنتور آب، چه در محیط‌های داخلی و چه خارجی.
+## Features
+- **YOLOv8 for Digit Detection**: The model detects and recognizes digits on water meter displays.
+- **Image Preprocessing**: Includes essential steps such as resizing, scaling, and image quality enhancement to improve model performance.
+- **Custom Dataset**: The model is trained using a labeled dataset of water meter images.
+- **High Accuracy**: Accurate digit recognition from water meter images, whether in indoor or outdoor environments.
 
-## مدل
-- در این پروژه از **YOLOv8** برای تشخیص اعداد استفاده شده است.
-- مدل با استفاده از مجموعه داده‌های سفارشی آموزش دیده و تنظیمات آن برای بهبود دقت انجام شده است.
+## Model
+- The project uses **YOLOv8** for digit detection.
+- The model is trained on custom datasets and fine-tuned to improve accuracy.
 
-## مشارکت
-مشارکت شما خوش‌آمد است! برای بهبود و رفع اشکالات می‌توانید مشکلات را مطرح کنید یا درخواست‌های تغییر (Pull Requests) ارسال کنید.
+## Contribution
+Your contributions are welcome! Feel free to report any issues or submit pull requests to enhance the project.
 
-
-![Digtal-clock](https://github.com/MMD1426/WaterMeter-Reader/blob/main/Screenshot%202024-08-15%20133256.png)
+![Digital-clock](https://github.com/MMD1426/WaterMeter-Reader/blob/main/Screenshot%202024-08-15%20133256.png)
