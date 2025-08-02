@@ -1,4 +1,4 @@
-# WaterMeter-Reader
+# WaterMeter Reader
 
 ## Introduction
 This project is designed for the automatic reading of water meter digits using deep learning techniques. The YOLOv8 model, developed by Ultralytics, is employed for detecting the digits on the meter. The primary goal of this project is to simplify the water meter reading process and reduce errors.
