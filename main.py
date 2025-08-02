@@ -1,3 +1,4 @@
+# Import libraries
 from ultralytics import YOLO
 import cv2
 import numpy as np
@@ -5,6 +6,8 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
+
+# Create round border in the input image
 def add_round_border(
     image, border_color=(232, 232, 232), border_radius=30, border_width=3
 ):  
@@ -36,29 +39,37 @@ def add_round_border(
     return new_image
 
 
-model = YOLO(r'D:\Project-VSCode\WaterMeter-Reader\best.pt')
+# Load model
+model = YOLO(r'/src/models/model.pt')
 
-
+# Classes
 labels = ['0','1','2','3','4','5','6','7','8','9']
 
-img = cv2.imread(r'D:\Project-VSCode\WaterMeter-Reader\test1.png')
+# Reading input image
+img = cv2.imread(r'/src/test/input.png')
 
+# Resizing input image
 img = cv2.resize(img,(720,525))
 
+# Create lists
 boxes = []
 labels_list = []
 
-cap = cv2.VideoCapture(r'D:\Project-VSCode\WaterMeter-Reader\Background.png')
+# Load background
+cap = cv2.VideoCapture(r'/src/backgrounds/background.png')
 
 while True:
 
+    # Reading frame
     ret,frame = cap.read()
 
+    # Resizinf frame
     frame = cv2.resize(frame,(900,700))
 
+    # Predicting input image
     results = model.predict(img)[0]
 
-
+    # Getting the coordinates of the predicted boxes
     for r in results.boxes.data.tolist():
         x1 , y1 , x2 , y2 , score , class_id = r
         x1 , y1 , x2 , y2 , class_id = int(x1) , int(y1) , int(x2) , int(y2) , int(class_id)
@@ -66,10 +77,10 @@ while True:
 
         boxes.append([x1,y1,x2,y2,class_id])
 
-
+    # Sorting boxes list
     boxes = sorted(boxes)
 
-
+    # Actions on the frame
     for i in range(len(boxes)):
         cv2.rectangle(img,(boxes[i][0],boxes[i][1]),(boxes[i][2],boxes[i][3]),(0,0,255),2)
         id = boxes[i][4]
@@ -77,6 +88,7 @@ while True:
         labels_list.append(label)
         cv2.putText(img,label,(boxes[i][0],boxes[i][1]-5),cv2.FONT_HERSHEY_DUPLEX,1,(0,0,255),1)
     
+    # Actions on the input image
     img = Image.fromarray(img)
     img = add_round_border(img,(220,220,65),30,1)
     img = np.asarray(img)
@@ -84,9 +96,9 @@ while True:
     img = cv2.cvtColor(img,cv2.COLOR_RGB2BGR)
     frame[25:550,90:810] = img
 
-
+    # Placing fonts on the input image
     frame = Image.fromarray(frame)
-    font = ImageFont.truetype(r'D:\Project-VSCode\WaterMeter-Reader\ARIALBD.TTF',size=50)
+    font = ImageFont.truetype(r'/src/fonts/ARIALBD.TTF',size=50)
     drawing_on_img = ImageDraw.Draw(frame)
     j = 280
     for i in range(len(labels_list)-1):

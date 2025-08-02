@@ -16,4 +16,4 @@ This project is designed for the automatic reading of water meter digits using d
 ## Contribution
 Your contributions are welcome! Feel free to report any issues or submit pull requests to enhance the project.
 
-![Digital-clock](https://github.com/MMD1426/WaterMeter-Reader/blob/main/Screenshot%202024-08-15%20133256.png)
+![Digital-clock](https://github.com/MMD1426/WaterMeter-Reader/blob/main/src/test/output.png)
